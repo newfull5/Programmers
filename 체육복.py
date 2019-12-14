@@ -1,15 +1,19 @@
 def solution(n, lost, reserve):
-    intersec = list(set(lost) & set(reserve))
-    lost = list(set(lost) - set(intersec))
-    reverse = list(set(lost) - set(intersec))
+    for i in range(0, len(lost)):
+        for j in range(0, len(reserve)):
+            if lost[i] == reserve[j]:
+                lost[i] = 0
+                reserve[j] = 0
+            elif lost[i]-1 == reserve[j]:
+                lost[i] = 0
+                reserve[j] = 0
+            elif lost[i]+1 == reserve[j]:
+                lost[i] = 0
+                reserve[j] = 0     
+
+    lost = list(set(lost))
+    reserve = list(set(reserve))
+    lost.remove(0)
+    reserve.remove(0)
     
-    for i in range(0, n):
-        if i in lost:
-            if i-1 in reserve:
-                reserve.remove(i-1)
-                lost.remove(i)
-            elif i+1 in reserve:
-                reserve.remove(i+1)
-                lost.remove(i)
-                
-    return n - len(lost)
+    return n-len(lost)
