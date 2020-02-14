@@ -1,14 +1,14 @@
 def solution(heights):
     answer = []
+    
     for i in range(0, len(heights)):
-        if i == 0:
-            answer.append(0)
-        else:
-            if max(heights[:i]) > heights[i]:
-                for j in range(1, i+1):
-                    if heights[:i][-j] > heights[i]:
-                        answer.append(i-j+1)
-                        break
-            else:
+        for j in range(i, -1, -1):
+            if heights[i] < heights[j]:
+                answer.append(j+1)
+                break
+            if j == 0:
                 answer.append(0)
+                break
+                
     return answer
+    
