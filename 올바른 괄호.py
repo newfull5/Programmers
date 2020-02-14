@@ -20,4 +20,18 @@ def solution(s):
 
 
     return len(stack) == 0
+
+
+-------------------
+
+2020.02.14
+
+def solution(s):
+    answer = s[0]
+    for i in range(1, len(s)):
+        if s[i] == ')':
+            answer = answer[:-1]
+        else:
+            answer += s[i]
+    return answer == ''
     
