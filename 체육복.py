@@ -1,19 +1,12 @@
 def solution(n, lost, reserve):
-    for i in range(0, len(lost)):
-        for j in range(0, len(reserve)):
-            if lost[i] == reserve[j]:
-                lost[i] = 0
-                reserve[j] = 0
-            elif lost[i]-1 == reserve[j]:
-                lost[i] = 0
-                reserve[j] = 0
-            elif lost[i]+1 == reserve[j]:
-                lost[i] = 0
-                reserve[j] = 0     
-
-    lost = list(set(lost))
-    reserve = list(set(reserve))
-    lost.remove(0)
-    reserve.remove(0)
+    _reserve = [r for r in reserve if r not in lost]
+    _lost = [l for l in lost if l not in reserve]
     
-    return n-len(lost)
+    for r in _reserve:
+        f = r - 1
+        b = r + 1
+        if f in _lost:
+            _lost.remove(f)
+        elif b in _lost:
+            _lost.remove(b)
+    return n - len(_lost)
