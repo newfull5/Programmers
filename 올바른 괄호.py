@@ -23,7 +23,6 @@ def solution(s):
 
 
 -------------------
-
 2020.02.14
 
 def solution(s):
