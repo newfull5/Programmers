@@ -1,3 +1,4 @@
+'''
 from collections import deque
 
 def solution(strings, n):
@@ -17,3 +18,8 @@ def solution(strings, n):
                 answer.append(deq[j][0])
                 
     return answer
+'''
+#2020.02.15
+def solution(strings, n):
+    strings.sort()
+    return sorted(strings, key =lambda strings: strings[n])
