@@ -1,3 +1,4 @@
+'''
 def solution(answers):
     man_one = [1,2,3,4,5]*2000
     man_two = [2,1,2,3,2,4,5]*1500
@@ -31,3 +32,34 @@ def solution(answers):
         return [1,3]
     else:
         return [(abc.index(max(abc)) + 1)]
+'''
+
+#2020.02.16
+
+def solution(answers):
+    answers = list(map(str,answers))
+
+    loser1 = '12345'*2000
+    loser2 = '21232425'*1250
+    loser3 = '3311224455'*1000
+    cnt1 = 0
+    cnt2 = 0
+    cnt3 = 0
+
+    answers = ''.join(answers)
+    
+    for i in range(0, len(answers)):
+        if answers[i] == loser1[i]:
+            cnt1 += 1
+        if answers[i] == loser2[i]:
+            cnt2 += 1
+        if answers[i] == loser3[i]:
+            cnt3 += 1
+            
+    temp = sorted([[1,cnt1],[2,cnt2],[3,cnt3]], reverse = True, key = lambda abc : abc[1])
+    
+    if temp[0][1] == temp[1][1] == temp[2][1]:
+        return [1,2,3]
+    if temp[0][1] == temp[1][1]:
+        return [temp[0][0],temp[1][0]]
+    return [temp[0][0]]
