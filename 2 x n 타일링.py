@@ -1,3 +1,4 @@
+'''
 def solution(n):
     answer = [1,2]
     if n==0:
@@ -11,7 +12,7 @@ def solution(n):
             answer.append(answer[0]+answer[1])
             answer.pop(0)
     return answer[-1]%1000000007
-    
+'''
     #------------------------
  
 def fac(num):
