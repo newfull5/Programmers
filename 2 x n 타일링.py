@@ -13,7 +13,7 @@ def solution(n):
             answer.pop(0)
     return answer[-1]%1000000007
 '''
-    #------------------------
+    #-----------------------
  
 def fac(num):
     if num == 0:
