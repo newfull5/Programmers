@@ -1,3 +1,4 @@
+'''
 from collections import deque
 
 def solution(bridge_length, weight, truck_weights):
@@ -21,3 +22,26 @@ def solution(bridge_length, weight, truck_weights):
             elif len(on_bridge) < bridge_length and sum(on_bridge) >= weight:
                 on_bridge.appendleft(0)
     return cnt + bridge_length
+'''
+#2020.02.23
+import collections
+
+def solution(bridge_length, weight, truck_weights):
+
+    truck_weights = collections.deque(truck_weights)
+    deq = collections.deque([])
+
+    cnt = 0
+    while True:
+        if not truck_weights:
+            break
+        if len(deq) == bridge_length:
+            deq.pop()
+        if sum(deq) + truck_weights[0] > weight:
+            deq.appendleft(0)
+        else:
+            deq.appendleft(truck_weights.popleft())
+
+        cnt += 1
+        
+    return cnt+bridge_length
