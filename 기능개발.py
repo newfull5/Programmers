@@ -1,3 +1,4 @@
+'''
 def solution(progresses, speeds):
     days = []
     for i in range(0, len(progresses)):
@@ -24,6 +25,25 @@ def solution(progresses, speeds):
     answerr.append(len(days) - len(answer[-1]))
 
     return answerr
+'''
 
+import math
+
+def solution(progresses, speeds):
+    stack = []
+    answer = []
+    
+    for i in range(0, len(speeds)):
+        stack.append(math.ceil((100 - progresses[i])/speeds[i]))
+
+    pin = 0
+    for i in range(0, len(stack)):
+        if stack[i] > stack[pin]:
+            answer.append(i - pin)
+            pin = i
+            
+    answer.append(len(stack) - pin)
+    
+    return answer
 
 
