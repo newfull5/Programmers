@@ -14,7 +14,7 @@ def solution(n):
     return answer[-1]%1000000007
 '''
     #-----------------------
- 
+
 def fac(num):
     if num == 0:
         return 0
