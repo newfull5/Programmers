@@ -1,3 +1,4 @@
+'''
 def solution(clothes):
     kind = []
     answer = []
@@ -23,3 +24,21 @@ def solution(clothes):
         temp *= i
         
     return temp-1
+'''
+# 2020.02.25
+def solution(clothes):
+    kind = []
+    cnt = []
+    answer = 1
+    
+    for clothe in clothes:
+        kind.append(clothe[1])
+    
+    for kin in set(kind):
+        cnt.append(kind.count(kin)+1)    
+    
+    for num in cnt:
+        answer *= num
+        
+    return answer-1
+        
