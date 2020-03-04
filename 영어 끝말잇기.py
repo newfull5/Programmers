@@ -1,3 +1,4 @@
+'''
 def solution(n, words):
     wrong = 0
     for i in range(0, len(words)-1):
@@ -17,3 +18,12 @@ def solution(n, words):
         return [n,wrong//n]
     else:
         return [wrong%n,(wrong//n)+1]
+'''
+#2020.03.04
+def solution(n, words):
+    for i in range(1, len(words)):
+        if words[i-1][-1] != words[i][0] or words[i] in words[:i]:
+            if (i+1) % n == 0:
+                return [n, (i // n)+1]
+            return [(i+1) % n, (i // n)+1]
+    return [0,0]
