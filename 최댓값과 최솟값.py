@@ -1,4 +1,4 @@
-def solution(s):
+'''def solution(s):
     answer = []
     
     a = s.split()
@@ -11,9 +11,8 @@ def solution(s):
     k = "{} {}".format(answer[0],answer[-1])
     
     return k
-
---------------------
-2020.02.14
+'''
+#2020.02.14
 
 def solution(s):
     temp = s.split()
