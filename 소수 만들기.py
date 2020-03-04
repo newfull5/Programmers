@@ -1,3 +1,4 @@
+'''
 def solution(nums):
     arr = []
     cnt = 0
@@ -18,3 +19,26 @@ def solution(nums):
         cnt = 0
         
     return len(answer)
+'''
+#2020.03.04
+#5달전 나의 풀이를 살펴보니 기분이 묘하다. 그땐 itertools도 몰라서 수작업으로 구현하고 일일이 비교하며 답을 구했다.
+#쉬운 작업이 아니었을텐데 끝까지 구현하여 답을 맞추었었구나, 대견하기도 하다.
+from itertools import combinations
+
+def solution(nums):
+    arr = list(combinations(sorted(nums),3))
+    cnt = 0
+    prime = [2]
+
+    for i in range(3, sum(arr[-1])+1):
+        prime.append(i)
+        for j in range(0,len(prime)-1):
+            if i % prime[j] == 0:
+                prime.pop()
+                break
+
+    for num in arr:
+        if sum(num) in prime:
+            cnt += 1
+            
+    return cnt
