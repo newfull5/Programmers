@@ -8,7 +8,7 @@ def solution(s):
             s = s.replace(s[i+1],s[i+1].upper(),1)
 
     return s
-    
+     
     이게 안되는 이유를 모르겠다
 '''
 
