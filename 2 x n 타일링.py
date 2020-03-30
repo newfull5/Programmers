@@ -1,4 +1,4 @@
-'''   
+''' 
 def solution(n):
     answer = [1,2]
     if n==0:
