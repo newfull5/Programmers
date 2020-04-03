@@ -7,6 +7,8 @@ def solution(phone_book):
                     return False
     return True
 '''
+
+#2020.04.03
 def solution(phone_book):
     phone_book = sorted(phone_book, key = lambda phone_book: len(phone_book))
     
