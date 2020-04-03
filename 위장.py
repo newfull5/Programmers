@@ -25,6 +25,8 @@ def solution(clothes):
         
     return temp-1
 '''
+
+'''
 # 2020.02.25
 def solution(clothes):
     kind = []
@@ -41,4 +43,18 @@ def solution(clothes):
         answer *= num
         
     return answer-1
+'''
+
+#2020.04.03
+from collections import Counter
+from functools import reduce
+
+def solution(clothes):
+    
+    val = Counter([category for kind, category in clothes])
+    val = list(val.values())
+    
+    for i in range(0, len(val)):
+        val[i] = val[i]+1
         
+    return reduce(lambda x,y: x*y,val)-1
