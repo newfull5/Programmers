@@ -1,4 +1,4 @@
-#황당한 풀이인 줄 알지만 안풀리는데 뭐 어
+#황당한 풀이인 줄 알지만 안풀리는데 뭐 어쩌겠는가
 import itertools
 
 def solution(numbers):
