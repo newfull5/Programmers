@@ -1,4 +1,5 @@
 '''
+#2019.10.27
 def solution(progresses, speeds):
     days = []
     for i in range(0, len(progresses)):
@@ -27,6 +28,7 @@ def solution(progresses, speeds):
     return answerr
 '''
 '''
+#2020.02.23
 import math
 
 def solution(progresses, speeds):
