@@ -26,7 +26,7 @@ def solution(progresses, speeds):
 
     return answerr
 '''
-
+'''
 import math
 
 def solution(progresses, speeds):
@@ -46,4 +46,21 @@ def solution(progresses, speeds):
     
     return answer
 
+'''
+#2020.04.05
+#코드가 점점 간결해진다. 처음 풀이와 비교해 보면 꽤 많이 성장한 것같다.
+import math
 
+def solution(progresses, speeds):
+    arr = [math.ceil(a/b) for a,b in zip(list(map(lambda x: 100-x,progresses)),speeds)]    
+    answer = []
+    pin = 0
+    
+    for i in range(0, len(arr)):
+        if arr[i] > arr[pin]:
+            answer.append(i - pin)
+            pin = i
+
+    answer.append(len(arr) - pin)
+    
+    return answer
