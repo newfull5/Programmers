@@ -1,3 +1,4 @@
+'''
 def solution(people, limit):
     people.sort()
     cnt = 0
@@ -13,3 +14,20 @@ def solution(people, limit):
             light += 1
             
     return len(people) - cnt
+'''
+
+#2020.04.18
+def solution(people, limit):
+    people.sort()
+    a, b = 0, len(people)-1
+    pair = 0
+
+    while a < b:
+        if people[a] + people[b] > limit:
+            b -= 1
+        else:
+            pair += 1
+            a += 1
+            b -= 1
+    return len(people)-pair
+
