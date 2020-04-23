@@ -1,6 +1,6 @@
 #역시 재귀는 어렵다. 
 
-def solution(a): 
+def solution(a):  
     answer = ''
     def div(a):
         nonlocal answer
