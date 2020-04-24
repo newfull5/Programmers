@@ -24,6 +24,7 @@ def solution(skill, skill_trees):
             
     return cnt
 '''
+'''
 def solution(skill, skill_trees):
     answer = []
     for i in range(0, len(skill)):
@@ -40,4 +41,22 @@ def solution(skill, skill_trees):
         if ''.join(temp) in answer:
             cnt += 1
             
+    return cnt
+'''
+#2020.04.21
+def solution(skill, skill_trees):
+    arr = []
+
+    for i in range(0, len(skill)+1):
+        arr.append(skill[0:i])
+        
+    cnt = 0
+
+    for string in skill_trees:
+        temp = ''
+        for a in list(string):
+            if a in list(skill):
+                temp += a
+        if temp in arr:
+            cnt += 1
     return cnt
