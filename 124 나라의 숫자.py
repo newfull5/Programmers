@@ -16,4 +16,3 @@ def solution(a):
             answer += '2'
             return div(a//3)
     return div(a)
-
