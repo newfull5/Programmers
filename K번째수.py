@@ -22,3 +22,9 @@ def solution(array, commands):
         answer.append(sorted(array[arr[0]-1:arr[1]])[arr[2]-1])
         
     return answer
+
+
+#2020.05.28
+#뭔가 짠하다... 내가 점점 달라졌구나 싶다.
+def solution(array, commands):
+    return [(sorted(array[i-1:j])[k-1]) for i,j,k in commands]
