@@ -1,7 +1,7 @@
 '''
 def solution(array, commands):
     answer = []
-    arr = []
+    arr = [] 
     
     for t in range(0, len(commands)):
         i = commands[t][0]
