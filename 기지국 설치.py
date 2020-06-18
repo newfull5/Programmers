@@ -1,7 +1,7 @@
 '''
 import math
 
-def solution(N, stations, W):
+def solution(N, stations, W): 
     breakpoint = 0
     ans = 0
 
