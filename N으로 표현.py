@@ -2,7 +2,7 @@
 def solution(N, number):
     S = [{N}]
     for i in range(2, 9):
-        lst = [int(str(N)*i)]
+        lst = [int(str(N)*i)] 
         for X_i in range(0, int(i / 2)):
             for x in S[X_i]:
                 for y in S[i - X_i - 2]:
