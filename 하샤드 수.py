@@ -1,3 +1,4 @@
+'''
 def solution(x):
     
     char = str(x)
@@ -7,3 +8,7 @@ def solution(x):
         abc = abc + int(char[i])
         
     return x % abc == 0
+'''
+#2020.07.01
+def solution(x):
+    return x % sum(map(int ,list(str(x)))) == 0
