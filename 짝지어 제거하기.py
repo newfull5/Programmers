@@ -10,6 +10,7 @@ def solution(s):
             result.append(i)
     return int(not bool(result))
 '''
+'''
 #2020.03.04
 import collections
 
@@ -31,5 +32,22 @@ def solution(s):
         s = list(stack)
         if length == len(s):
             return 0
-
+'''
+#2020.07.02
+def solution(s):
+    stack = []
+    
+    if len(s) % 2 == 1:
+        return 0
+    for a in list(s):
+        stack.append(a)
+        try:
+            if stack[-1] == stack[-2]:
+                stack.pop()
+                stack.pop()
+        except IndexError:
+            continue           
+    if not stack:
+        return 1
+    return 0
 
