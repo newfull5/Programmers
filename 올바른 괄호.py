@@ -1,3 +1,4 @@
+'''
 def solution(s):
     stack = []
     
@@ -22,7 +23,7 @@ def solution(s):
     return len(stack) == 0
 
 
--------------------
+-------------------'''
 2020.02.14
 
 def solution(s):
