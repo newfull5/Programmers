@@ -5,3 +5,4 @@ def solution(x, n):
         abc.append(i*x)
         
     return abc
+ 
