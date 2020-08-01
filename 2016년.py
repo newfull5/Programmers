@@ -4,7 +4,7 @@ def solution(a, b):
     summ = 0
     
     for i in range(0,a):
-        summ += day[i]
+        summ += day[i] 
     summ += b 
      
     return aaa[summ % 7]
