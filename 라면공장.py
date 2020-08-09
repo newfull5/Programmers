@@ -5,7 +5,7 @@ def solution(stock, dates, supplies, k):
     posida = []
     
     while stock < k:
-        posida = []
+        posida = [] 
         for i in range(0, len(dates)):
             if stock >= dates[i]:
                 posida.append(supplies[i])
