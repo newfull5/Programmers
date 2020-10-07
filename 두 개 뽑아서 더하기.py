@@ -1,3 +1,4 @@
+"""
 def solution(numbers):
     answer = []
 
@@ -5,4 +6,14 @@ def solution(numbers):
         for j in range(i+1,len(numbers)):
             answer += [numbers[i]+numbers[j]]
 
+    return sorted(list(set(answer)))
+"""
+
+# 2020.10.07
+
+def solution(numbers):
+    answer = []
+    for i in range(len(numbers)):
+        for j in range(i+1,len(numbers)):
+            answer.append(numbers[i]+numbers[j])
     return sorted(list(set(answer)))
