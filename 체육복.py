@@ -12,6 +12,7 @@ def solution(n, lost, reserve):
             _lost.remove(b)
     return n - len(_lost)
 '''
+'''
 #2020.05.27
 def solution(n, lost, reserve):
     
@@ -27,3 +28,20 @@ def solution(n, lost, reserve):
             lost.remove(res+1)
             
     return n-len(lost)
+'''
+#2020.10.17
+def solution(n, lost, reserve):
+    lost_copy = lost[:]
+
+    for los in lost_copy:
+        if los in reserve:
+            reserve.remove(los)
+            lost.remove(los)
+
+    for res in reserve:
+        if res-1 in lost:
+            lost.remove(res-1)
+        elif res+1 in lost:
+            lost.remove(res+1)
+
+    return (n - len(lost))
