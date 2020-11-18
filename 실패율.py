@@ -19,7 +19,7 @@ def solution(N, stages):
         
     return answer
 '''
-
+"""
 #2020.02.26
 def solution(N, stages):
     stages.sort()
@@ -48,3 +48,18 @@ def solution(N, stages):
             answer.append(i)
             
     return answer
+"""
+#2020.11.18
+#그래도 다행히 실력이 늘어가는 것 같다
+def solution(N, stages):
+    answer = []
+
+    for i in range(1,N+1):
+        try:
+            answer.append((i, stages.count(i)/sum(map(lambda x: 1 if x>=i else 0, stages))))
+        except ZeroDivisionError:
+            answer.append((i, 0))
+    answer = sorted(answer, key = lambda x: x[0])
+    answer = sorted(answer, key = lambda x: x[-1], reverse = True)
+
+    return [a for a,b in answer]
