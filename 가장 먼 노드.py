@@ -1,3 +1,5 @@
+"""
+#2020.03.08
 from collections import defaultdict, deque
 
 def solution(n, edge):
@@ -31,3 +33,30 @@ def solution(n, edge):
             answer += 1
             
     return answer
+"""
+
+def solution(n, edge):
+    diction = {i:[] for i in range(1,n+1)}
+
+    for a,b in edge:
+        diction[a].append(b)
+        diction[b].append(a)
+
+    start = set([1])
+
+    visited = set(start)
+
+    next = set([])
+
+    while True:
+        for num in start:
+            next.update(set(diction[num]))
+
+        next = next - visited
+
+        visited = visited | next
+
+        if not next:
+            return len(start)
+
+        start = next.copy()
