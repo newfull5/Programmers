@@ -1,3 +1,5 @@
+"""
+#2020.02.25
 def solution(genres, plays):
     if len(genres) == 1:
         return [0]
@@ -33,4 +35,33 @@ def solution(genres, plays):
     if maxplay[-1][0] == stack[-1][1] and maxplay[-1][0] != stack[-2][1]:
         answer.append(stack[-1][0])  
         
+    return answer
+"""
+#2021.01.25
+def solution(genres, plays):
+    max_gernes = {gen:0 for gen in set(genres)}
+
+    answer = []
+
+    for i in range(len(genres)):
+        max_gernes[genres[i]] = max_gernes[genres[i]] + plays[i]
+
+    max_gernes = sorted(max_gernes.items(), key = lambda x: x[-1])
+
+    while max_gernes:
+        gen = max_gernes.pop()[0]
+        temp_arr = []
+
+        for i in range(len(genres)):
+            if genres[i] == gen:
+                temp_arr.append((i,plays[i]))
+
+        temp_arr = sorted(temp_arr, key = lambda x: x[0], reverse=True)
+        temp_arr = sorted(temp_arr, key = lambda x: x[1])
+
+        if len(temp_arr) == 1:
+            answer += [temp_arr.pop()[0]]
+        else:
+            answer += [temp_arr.pop()[0], temp_arr.pop()[0]]
+            
     return answer
