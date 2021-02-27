@@ -31,6 +31,7 @@ def solution(scoville, K):
     return cnt
 
 """
+"""
 #2020.12.02
 import heapq
 
@@ -52,3 +53,17 @@ def solution(scoville, K):
         
         if len(scoville) == 1:
             return -1
+        
+"""
+#2021.02.27
+from heapq import heappop, heapify, heappush
+
+def solution(scoville, K):
+    heapify(scoville)
+
+    for i in range(1000000):
+        if scoville[0] >= K:
+            return i
+        if len(scoville) < 2:
+            return -1
+        heappush(scoville, (heappop(scoville) + heappop(scoville) * 2))
