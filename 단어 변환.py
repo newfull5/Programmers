@@ -1,3 +1,6 @@
+"""
+# 2020.4.14
+
 def diffone(a,b):
     cnt = 0
     for i in range(len(a)):
@@ -28,3 +31,39 @@ def solution(begin, target, words):
             return answer
         begin = temp[:]
     return 0
+"""
+
+# 2021.3.19
+
+def solution(begin, target, words):
+    
+    answer = 51
+    length = len(begin)
+    
+    def OneLetterDifferent(current,cnt,visited):
+        nonlocal answer
+
+        if current == target:
+            answer = min(answer, cnt)
+            return 
+
+        for word in words:
+
+            if word in visited:
+                continue
+
+            temp = 0
+
+            for i in range(length):
+                if current[i] != word[i]:
+                    temp += 1
+
+            else:
+                if temp == 1:
+                    OneLetterDifferent(word, cnt+1, visited + [word])
+                    
+    OneLetterDifferent(begin, 0, [])
+    
+    if answer == 51:
+        return 0
+    return answer
