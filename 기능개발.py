@@ -49,6 +49,7 @@ def solution(progresses, speeds):
     return answer
 
 '''
+"""
 #2020.04.05
 #코드가 점점 간결해진다. 처음 풀이와 비교해 보면 꽤 많이 성장한 것같다.
 import math
@@ -65,4 +66,28 @@ def solution(progresses, speeds):
 
     answer.append(len(arr) - pin)
     
+    return answer
+"""
+#2020.06.21
+
+import math
+    
+def solution(progresses, speeds):
+
+    stack = [math.ceil((100 - progresses[i]) / speeds[i]) for i in range(len(progresses))]
+    answer = []
+
+    num = stack.pop(0)
+    cnt = 1
+    while stack:
+        if num < stack[0]:
+            num = stack.pop(0)
+            answer.append(cnt)
+            cnt = 1
+        else:
+            cnt += 1
+            stack.pop(0)
+
+    answer.append(cnt)
+
     return answer
