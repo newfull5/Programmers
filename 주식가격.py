@@ -14,6 +14,7 @@ def solution(price):
     
     return answer
 '''
+'''
 #2020.07.02
 def solution(prices):
     answer = []
@@ -26,4 +27,19 @@ def solution(prices):
     answer.append(0)
                 
     return answer
-                
+'''                
+#2021.06.23
+def solution(prices):
+    answer = []
+
+    for i in range(len(prices)-1):
+        for j in range(i+1, len(prices)):
+            if prices[i] > prices[j]:
+                answer.append(j-i)
+                break
+        else:
+            answer.append(len(prices)-i-1)
+
+    answer.append(0)
+
+    return answer
