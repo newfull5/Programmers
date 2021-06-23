@@ -24,7 +24,7 @@ def solution(n, computers):
             
     return answer
 """
-
+"""
 # 2021.3.18
 def solution(n, computers):
     visited = []
@@ -46,5 +46,29 @@ def solution(n, computers):
             if j not in visited and computers[i][j] == 1:
                 DFS(i)
                 answer += 1
+
+    return answer
+"""
+#2021.6.24
+def solution(n, computers):
+    
+    visited = []
+
+    answer = 0
+
+    def DFS(idx):
+
+        nonlocal visited
+
+        visited.append(idx)
+
+        for i,v in enumerate(computers[idx]):
+            if v == 1 and i not in visited:
+                DFS(i)
+
+    for index in range(n):
+        if index not in visited:
+            answer += 1
+            DFS(index)
 
     return answer
