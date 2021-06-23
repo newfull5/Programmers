@@ -1,3 +1,4 @@
+"""
 def solution(numbers, target):
     cnt = 0
     
@@ -16,3 +17,24 @@ def solution(numbers, target):
     operator(numbers, target)
     
     return cnt
+"""
+#2021.06.24
+def solution(numbers, target):
+    
+    answer = 0
+    
+    def DFS(num,idx):
+
+        nonlocal answer
+
+        if idx == len(numbers):
+            if num == target:
+                answer += 1
+            return
+        
+        DFS(num + numbers[idx], idx+1)
+
+        DFS(num - numbers[idx], idx+1)
+        
+    DFS(0, 0)
+    return answer
