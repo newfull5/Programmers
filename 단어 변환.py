@@ -33,6 +33,7 @@ def solution(begin, target, words):
     return 0
 """
 
+"""
 # 2021.3.19
 
 def solution(begin, target, words):
@@ -67,3 +68,44 @@ def solution(begin, target, words):
     if answer == 51:
         return 0
     return answer
+"""
+#2021.6.26
+def solution(begin, target, words):
+    def checkOneDiffent(begin,word):
+        cnt = 0
+
+        for i in range(len(begin)):
+            if begin[i] != word[i]:
+                cnt += 1
+
+            if cnt >= 2:
+                return False
+
+        if cnt == 1:
+            return True
+
+        return False
+    
+    visited = []
+    queue = [begin]
+
+    cnt = 0
+
+    while queue:
+        cnt += 1
+        for _ in range(len(queue)):
+
+            begin = queue.pop(0)
+
+            for word in words:
+
+                if checkOneDiffent(begin, word) and word not in visited:
+                    queue.append(word)
+                    visited.append(word)
+
+        if target in queue:
+            return cnt
+
+        words = list(set(words) - set(queue))
+        
+    return 0
