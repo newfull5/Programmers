@@ -37,6 +37,7 @@ def solution(genres, plays):
         
     return answer
 """
+"""
 #2021.01.25
 def solution(genres, plays):
     max_gernes = {gen:0 for gen in set(genres)}
@@ -64,4 +65,23 @@ def solution(genres, plays):
         else:
             answer += [temp_arr.pop()[0], temp_arr.pop()[0]]
             
+    return answer
+"""
+#2021.7.2
+
+def solution(genres, plays):
+    answer = []
+
+    lists = list(zip(genres,plays))
+
+    max_gen = []
+
+    for gen in list(set(genres)):
+        max_gen.append([gen,(sum([b for a,b in lists if a == gen]))])
+
+    max_gen = sorted(max_gen, key = lambda x: x[-1], reverse=True)
+
+    for gen,_ in max_gen:
+        answer += [a for a,b in sorted([(i,v) for i, (g,v) in enumerate(lists) if g == gen], key = lambda x: x[-1],reverse=True)[:2]]
+
     return answer
