@@ -7,7 +7,7 @@ def solution(phone_book):
                     return False
     return True
 '''
-
+'''
 #2020.04.03
 def solution(phone_book):
     phone_book = sorted(phone_book, key = lambda phone_book: len(phone_book))
@@ -18,3 +18,18 @@ def solution(phone_book):
             if phone_book[i] == phone_book[j][:length]:
                 return False
     return True
+'''
+
+#2021.07.23
+def check(phone_book):
+    
+    phone_book.sort()
+    
+    for i in range(0, len(phone_book)-1):
+        if (phone_book[i] == phone_book[i+1][:len(phone_book[i])]):
+            return False
+    return True
+
+def solution(phone_book):
+    return check(phone_book)
+    
