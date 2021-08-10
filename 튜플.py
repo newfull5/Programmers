@@ -1,11 +1,19 @@
+import re
+
 def solution(s):
-    s = s[2:-2].replace('{','')
-    s = sorted(s.split('},'), key = lambda x : len(x))
-    s = list(map(lambda x: set(x.split(',')),s)) 
+    s = s.split('},')
+
+    q = re.compile('\d+')
+    arr = ([set(q.findall(arr)) for arr in s])
+    arr = sorted(arr, key=lambda x: len(x))
+
+    answer_set = set()
     answer = []
-    
-    answer.append(list(s[0])[0])
-    for i in range(1, len(s)):
-        answer.append(list(s[i] - s[i-1])[0])
-        
-    return list(map(int,answer))
+
+    for a in arr:
+        answer.append(int(list(a - answer_set)[0]))
+        answer_set = a
+
+    return answer
+
+
