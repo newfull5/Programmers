@@ -1,0 +1,16 @@
+def solution(keyinput, board):
+    max_right, max_height = board
+    max_height = max_height // 2
+    max_right = max_right // 2
+    x, y= 0, 0
+    for drc in keyinput:
+        if drc == 'left' and x != max_right * (-1):
+            x -= 1
+        if drc == 'right' and x != max_right:
+            x += 1
+        if drc == 'up' and y != max_height:
+            y += 1
+        if drc == 'down' and y != max_height * (-1):
+            y -= 1
+    
+    return [x, y]
