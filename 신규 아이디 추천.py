@@ -1,3 +1,4 @@
+"""
 import re
 
 def solution(new_id):
@@ -33,5 +34,26 @@ def solution(new_id):
     # 7단계
     while len(new_id) <= 2:
         new_id += new_id[-1]
+        
+    return new_id
+"""
+#2022.11.09
+import re
+
+def solution(new_id):
+    new_id = new_id.lower()
+    new_id = ''.join(re.findall('[a-z0-9-_.]', new_id))
+    new_id = re.sub('\.+','.',new_id)
+    new_id = re.sub('^\.', '', new_id)
+    new_id = re.sub('\.$', '', new_id)
+    if not new_id:
+        new_id = 'a'
+    if len(new_id) > 15:
+        new_id = new_id[:15]
+    new_id = re.sub('\.$', '', new_id)
+    if len(new_id) < 3:
+        new_id = new_id + new_id[-1]
+    if len(new_id) < 3:
+        new_id = new_id + new_id[-1]
         
     return new_id
