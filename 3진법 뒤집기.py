@@ -11,6 +11,7 @@ def convert(n, base):
 def solution(n):
     return int(convert(n, base=3)[::-1], 3)
 """
+"""
 #2020.12.21
 def convert(n,base):
     
@@ -24,3 +25,16 @@ def convert(n,base):
 def solution(n):
 
     return int(convert(n,3)[::-1], 3)
+"""
+#2022.11.09
+def get_rvs_ternery_scale(num):
+    answer = ''
+    
+    while num > 0:
+        num, remain = divmod(num, 3)
+        answer += str(remain)
+        
+    return answer
+
+def solution(n):
+    return int(get_rvs_ternery_scale(n), 3)
