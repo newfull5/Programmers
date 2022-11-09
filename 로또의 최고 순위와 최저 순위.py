@@ -1,3 +1,4 @@
+"""
 def solution(lottos, win_nums):
     least = set(lottos) & set(win_nums)
     
@@ -10,3 +11,11 @@ def solution(lottos, win_nums):
         l = 6
         
     return [l, r]
+"""
+#2022.11.09
+
+def solution(lottos, win_nums):
+    answer = len(list(set(lottos) & set(win_nums)))
+    answer = min(7-answer, 6)
+    
+    return [max(1, answer-lottos.count(0)), answer]
