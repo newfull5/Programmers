@@ -33,7 +33,7 @@ def solution(answers):
     else:
         return [(abc.index(max(abc)) + 1)]
 '''
-
+'''
 #2020.02.16
 
 def solution(answers):
@@ -63,3 +63,33 @@ def solution(answers):
     if temp[0][1] == temp[1][1]:
         return [temp[0][0],temp[1][0]]
     return [temp[0][0]]
+'''
+#2022.11.11
+def get_score(person, answers):
+    answer = 0
+    for i in range(len(answers)):
+        if int(person[i]) == answers[i]:
+            answer += 1
+    return answer
+
+def solution(answers):
+    nohoper1 = get_score('12345' * 2000, answers)
+    nohoper2 = get_score('21232425' * 1250, answers)
+    nohoper3 = get_score('3311224455' * 1000, answers)
+    
+    answer = sorted([nohoper1, nohoper2, nohoper3])
+    
+    if nohoper1 == nohoper2 == nohoper3:
+        return [1,2,3]
+    if nohoper1 > nohoper2 and nohoper1 > nohoper3:
+        return [1]
+    if nohoper2 > nohoper3 and nohoper2 > nohoper1:
+        return [2]
+    if nohoper3 > nohoper2 and nohoper3 > nohoper1:
+        return [3]
+    if nohoper1 == nohoper2 and nohoper2 > nohoper3:
+        return [1,2]
+    if nohoper1 == nohoper3 and nohoper1 > nohoper2:
+        return [1,3]
+    if nohoper2 == nohoper3 and nohoper2 > nohoper1:
+        return [2,3]
