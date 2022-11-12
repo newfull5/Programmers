@@ -27,7 +27,7 @@ def solution(dartResult):
 # '실전에서 정규식을 사용할수 있을까?'하는 마음에 자료에 의존하지 않고 스스로 풀어보았다.
 # 풀다보니 그냥 정규식을 공부하는 것이 나은것 같기도 하고 그렇다.
 # 2020.02.26
-
+"""
 def solution(dartResult):
 
     dartResult = list(dartResult)
@@ -63,3 +63,31 @@ def solution(dartResult):
             cnt[-1] = cnt[-1]*(-1)
             
     return sum(cnt)
+"""
+#2022.11.12
+import re
+
+def _calc(string):
+    answer = int(re.match('\d+', string).group())
+    if 'S' in string:
+        return answer
+    if 'D' in string:
+        return answer**2
+    if 'T' in string:
+        return answer**3
+
+def solution(dartResult):
+    result_list = re.findall('\d\d?(?:S|D|T)(?:[#*]?)',dartResult)
+    answer = [_calc(val) for val in result_list]
+
+    for i in range(len(result_list)):
+        if '#' in result_list[i]:
+            answer[i] = answer[i] * -1
+        if '*' in result_list[i]:
+            if i == 0:
+                answer[i] = answer[i] * 2
+            else:
+                answer[i] = answer[i] * 2
+                answer[i-1] = answer[i-1] * 2
+                
+    return sum(answer)
