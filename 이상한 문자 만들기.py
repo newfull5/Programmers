@@ -15,7 +15,7 @@ def solution(s):
     return answer[:-1]
 '''
 #2020.02.29
-
+"""
 def solution(s):
     s = s.lower()
     new_list = s.split(' ')
@@ -29,4 +29,16 @@ def solution(s):
         answer += ' '
     return answer[:-1]
                 
-
+"""
+#2022.11.12
+def solution(s):
+    answer = ''
+    for string in s.split(' '):
+        for i in range(len(string)):
+            if i % 2 == 0:
+                answer += string[i].upper()
+            else:
+                answer += string[i].lower()
+        answer += ' '
+        
+    return answer[:-1]
