@@ -1,3 +1,4 @@
+"""
 def solution(phone_number):
     
     abc = []
@@ -8,3 +9,7 @@ def solution(phone_number):
        adc += '*'
     
     return (adc+phone_number[-4:])
+"""
+#2022.11.12
+def solution(phone_number):
+    return '*'*len(phone_number[:-4])+phone_number[-4:]
