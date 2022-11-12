@@ -14,6 +14,11 @@ def solution(x):
 def solution(x):
     return x % sum(map(int ,list(str(x)))) == 0
 """
+"""
 # 2022.01.30
 def solution(x):
     return x % sum(map(int, (list(str(x))))) == 0
+"""
+#2022.11.12
+def solution(x):
+    return x % sum(map(int, list(str(x)))) == 0
