@@ -1,4 +1,5 @@
 #황당한 풀이인 줄 알지만 안풀리는데 뭐 어쩌겠는가
+"""
 import itertools
 
 def solution(numbers):
@@ -24,3 +25,21 @@ def solution(numbers):
                 break
     
     return cnt
+"""
+#2022.11.12
+import math
+
+def check_prime(x):
+    for i in range(2, int(math.sqrt(x) + 1)):
+    	if x % i == 0:
+        	return False
+    return True	
+
+def solution(n):
+    answer = 0
+    
+    for i in range(2, n+1):
+        if check_prime(i):
+            answer += 1
+    
+    return answer
