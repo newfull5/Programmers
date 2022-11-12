@@ -1,3 +1,4 @@
+"""
 def solution(s)
   answer = []
   abc = ""
@@ -11,3 +12,7 @@ def solution(s)
       abc+=(chr(answer[i]))
       
   return abc
+"""
+#2022.11.12
+def solution(s):
+    return ''.join(sorted(s, reverse=True))
