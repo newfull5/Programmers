@@ -19,7 +19,12 @@ def solution(strings, n):
                 
     return answer
 '''
+"""
 #2020.02.15
 def solution(strings, n):
     strings.sort()
     return sorted(strings, key =lambda strings: strings[n])
+"""
+#2022.11.13
+def solution(strings, n):
+    return sorted(sorted(strings), key=lambda x: x[n])
