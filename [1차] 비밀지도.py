@@ -27,6 +27,7 @@ def solution(n, arr1, arr2):
         answer.append(temp)
     return answer
 '''
+"""
 # 2020.02.26
 # 20일전 풀이에서 조금도 달라진게 없다. 풀이가 하나밖에 없는 문제인건가? 아니면 성장하지 못한 것인가?
 def solution(n, arr1, arr2):
@@ -56,3 +57,13 @@ def solution(n, arr1, arr2):
         answer.append(string)
         
     return answer
+"""
+#2022.11.12
+def _geunsub(string, n):
+    string = string[2:]
+    string = '00000' + string
+    string = string[-n:]
+    return string.replace('1', '#').replace('0', ' ')
+
+def solution(n, arr1, arr2):
+    return [_geunsub(bin(a | b), n) for a,b, in zip(arr1, arr2)]
