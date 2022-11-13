@@ -12,7 +12,7 @@ def solution(s):
     이게 안되는 이유를 모르겠다
      
 ''' 
- 
+ '''
 def solution(s):
     s = s.lower()
     answer = s[0].upper()
@@ -22,3 +22,12 @@ def solution(s):
         else:
             answer += s[i]
     return answer
+'''
+#2022.11.13
+def solution(s):
+    s = list(s.lower())
+    s[0] = s[0].upper()
+    for i in range(1, len(s)):
+        if s[i-1] == ' ':
+            s[i] = s[i].upper()
+    return ''.join(s)
