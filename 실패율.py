@@ -49,6 +49,7 @@ def solution(N, stages):
             
     return answer
 """
+"""
 #2020.11.18
 #그래도 다행히 실력이 늘어가는 것 같다
 def solution(N, stages):
@@ -63,3 +64,24 @@ def solution(N, stages):
     answer = sorted(answer, key = lambda x: x[-1], reverse = True)
 
     return [a for a,b in answer]
+"""
+#2022.11.13
+from collections import Counter
+
+def solution(N, stages):
+    num_people = len(stages)
+    stages = Counter(stages)
+    
+    answer = []
+    
+    for i in range(1,N+1):
+        if num_people == 0:
+            answer.append([i, 0])
+            continue
+        answer.append([i, stages[i] / num_people])
+        num_people -= stages[i]
+    
+    answer = sorted(answer, key=lambda x: x[0])
+    answer = sorted(answer, key=lambda x: x[-1], reverse=True)
+    
+    return [v for v, _ in answer]
