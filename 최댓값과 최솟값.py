@@ -12,6 +12,7 @@
     
     return k
 '''
+'''
 #2020.02.14
 
 def solution(s):
@@ -19,3 +20,8 @@ def solution(s):
     temp = list(map(int,temp))
     
     return '{} {}'.format(min(temp),max(temp))
+'''
+#2022.11.13
+def solution(s):
+    s = [int(v) for v in s.split()]
+    return f"{min(s)} {max(s)}"
