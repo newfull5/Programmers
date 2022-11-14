@@ -33,6 +33,7 @@ def solution(s):
         if length == len(s):
             return 0
 '''
+'''
 #2020.07.02
 def solution(s):
     stack = []
@@ -50,4 +51,21 @@ def solution(s):
     if not stack:
         return 1
     return 0
+'''
+#2022.11.14
+from collections import deque
 
+def solution(s):
+    s = deque(s)
+    stack = [0]
+    
+    while s:
+        temp = s.popleft()
+        if temp == stack[-1]:
+            stack.pop()
+        else:
+            stack.append(temp)
+            
+    if stack == [0]:
+        return 1
+    return 0
