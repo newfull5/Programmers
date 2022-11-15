@@ -24,6 +24,7 @@ def solution(n):
             cnt += 1
     return cnt
 '''
+'''
 #2020.04.25
 def solution(n):
     cnt = 0
@@ -33,3 +34,16 @@ def solution(n):
             cnt += 1
         n = n//2
     return cnt
+'''
+#2022.11.15
+def solution(n):
+    answer = 0
+    
+    while n > 0:
+        if n % 2 != 0:
+            n -= 1
+            answer += 1
+        else:
+            n = n//2
+    
+    return answer
