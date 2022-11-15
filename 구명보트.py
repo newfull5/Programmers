@@ -15,7 +15,7 @@ def solution(people, limit):
             
     return len(people) - cnt
 '''
-
+'''
 #2020.04.18
 def solution(people, limit):
     people.sort()
@@ -30,4 +30,33 @@ def solution(people, limit):
             a += 1
             b -= 1
     return len(people)-pair
+'''
+#2022.11.14
+from heapq import heapify, heappop
 
+def solution(people, limit):
+    length = len(people)
+    
+    if length == 1:
+        return 1
+    
+    max_heap = [-v for v in people]
+    heapify(max_heap)
+    heapify(people)
+    answer = 0
+    
+    while length > 0:
+        small_people = heappop(people)
+        length -= 1
+        for _ in range(length):
+            if length == 0:
+                break
+            big_people = -heappop(max_heap)
+            length -= 1
+            answer += 1
+            if big_people + small_people <= limit:
+                break
+        else:
+            answer += 1
+            
+    return answer
