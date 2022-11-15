@@ -13,6 +13,7 @@ def solution(arr):
     answer=arr[0]
     return answer
 '''
+'''
 #2020.03.04
 def gcd(a,b):
     if a % b == 0:
@@ -30,3 +31,22 @@ def chlthrhd(arr):
 
 def solution(arr):
     return chlthrhd(arr)
+'''
+#2022.11.15
+def get_gcd(a, b):
+    if b == 1:
+        return 1
+    if a % b == 0:
+        return b
+    return get_gcd(b, a%b)
+
+def get_glm(a, b):
+    return a*b / get_gcd(max(a,b), min(a,b))
+
+def solution(arr):
+    answer = arr.pop()
+    
+    for val in arr:
+        answer = get_glm(answer, val)
+        
+    return answer
