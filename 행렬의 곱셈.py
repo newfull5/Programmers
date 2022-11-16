@@ -1,3 +1,4 @@
+'''
 #2020.05.05
 def solution(arr1, arr2):
     arr3 = list(map(list, zip(*arr2)))
@@ -14,3 +15,9 @@ def solution(arr1, arr2):
         answer.append(arr)
     
     return answer
+'''
+#2022.11.16
+import numpy as np
+
+def solution(arr1, arr2):
+    return np.dot(np.array(arr1), np.array(arr2)).tolist()
