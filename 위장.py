@@ -44,7 +44,7 @@ def solution(clothes):
         
     return answer-1
 '''
-
+'''
 #2020.04.03
 from collections import Counter
 from functools import reduce
@@ -58,3 +58,15 @@ def solution(clothes):
         val[i] = val[i]+1
         
     return reduce(lambda x,y: x*y,val)-1
+'''
+#2022.11.16
+from collections import Counter
+
+def solution(clothes):
+    answer = 1
+    clothes = Counter([v for _,v in clothes])
+    
+    for val in clothes.values():
+        answer *= (val+1)
+        
+    return answer-1
