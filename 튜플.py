@@ -1,3 +1,4 @@
+'''
 import re
 
 def solution(s):
@@ -15,5 +16,16 @@ def solution(s):
         answer_set = a
 
     return answer
+'''
+#2022.11.16
+import re
 
-
+def solution(s):
+    s = sorted([v.split(',') for v in re.findall('\{((?:\d[,]?)+)\}',s)], key = lambda x: len(x))
+    
+    answer = s.pop(0)
+    
+    for arr in s:
+        answer += list(set(arr) - set(answer))
+        
+    return [int(v) for v in answer]
