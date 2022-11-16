@@ -68,6 +68,7 @@ def solution(progresses, speeds):
     
     return answer
 """
+'''
 #2020.06.21
 
 import math
@@ -91,3 +92,17 @@ def solution(progresses, speeds):
     answer.append(cnt)
 
     return answer
+'''
+#2022.11.16
+import math
+from collections import Counter
+
+def solution(progresses, speeds):
+    days = 0
+    lists = [math.ceil((100-a)/b) for a,b in zip(progresses, speeds)]
+    
+    for i in range(1, len(lists)):
+        if lists[i-1] > lists[i]:
+            lists[i] = lists[i-1]
+
+    return list(Counter(lists).values())
