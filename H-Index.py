@@ -1,3 +1,4 @@
+'''
 def solution(citations):
     citations.sort()
     answer = [0]
@@ -11,3 +12,13 @@ def solution(citations):
             answer.append(i)
             
     return max(answer)
+'''
+#2022.11.16
+def solution(citations):
+    n = len(citations)
+    citations.sort(reverse=True)
+    
+    for i in range(n, 0, -1):
+        if citations[:i][-1] >= i and i > n-i:
+            return i
+    return 0
