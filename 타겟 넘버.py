@@ -41,7 +41,7 @@ def solution(numbers, target):
     return answer
     
 """
-
+'''
 #2021.08.16
 def solution(numbers, target):
     answer = 0
@@ -63,3 +63,19 @@ def solution(numbers, target):
     return answer
 
 print(solution([1, 1, 1, 1, 1], 3))
+'''
+#2022.11.18
+def solution(numbers, target):
+    returns = []
+    
+    def dfs(numbers, index, answer):
+        if index == len(numbers):
+            returns.append(answer)
+            return
+
+        dfs(numbers, index+1, answer + numbers[index])
+        dfs(numbers, index+1, answer - numbers[index])
+        
+    dfs(numbers, 0, 0)
+    
+    return returns.count(target)
