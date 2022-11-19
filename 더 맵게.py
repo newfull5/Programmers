@@ -69,7 +69,7 @@ def solution(scoville, K):
             return -1
         heappush(scoville, (heappop(scoville) + heappop(scoville) * 2))
 '''     
-
+'''
 #2021.06.23
 from heapq import heappop, heappush, heapify
 
@@ -88,3 +88,20 @@ def solution(scoville, K):
         
         heappush(scoville, (heappop(scoville) + heappop(scoville)*2))
         cnt += 1
+'''
+#2022.11.19
+from heapq import heapify, heappop, heappush
+
+def solution(scoville, k):
+    heapify(scoville)
+    answer = 0
+    
+    while len(scoville) > 1:
+        food1 = heappop(scoville)
+        food2 = heappop(scoville)
+        heappush(scoville, food1 + food2*2)
+        answer += 1
+        if scoville[0] >= k:
+            return answer
+        
+    return -1
