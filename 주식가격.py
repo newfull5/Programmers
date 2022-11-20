@@ -27,6 +27,7 @@ def solution(prices):
     answer.append(0)
                 
     return answer
+'''
 '''                
 #2021.06.23
 def solution(prices):
@@ -43,3 +44,18 @@ def solution(prices):
     answer.append(0)
 
     return answer
+'''
+#2022.11.20
+def solution(prices):
+    answer = []
+    length = len(prices)-1
+    
+    for i in range(0, len(prices)-1):
+        for j in range(i+1, len(prices)):
+            if prices[i] > prices[j]:
+                answer.append(j-i)
+                break
+        else:
+            answer.append(length-i)
+            
+    return answer + [0]
