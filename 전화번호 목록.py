@@ -19,7 +19,7 @@ def solution(phone_book):
                 return False
     return True
 '''
-
+'''
 #2021.07.23
 def check(phone_book):
     
@@ -32,4 +32,16 @@ def check(phone_book):
 
 def solution(phone_book):
     return check(phone_book)
+'''
+#2022.11.21
+def solution(phone_book):
+    phone_book = sorted(phone_book, key = lambda x: len(x))
+    phone_book = sorted(phone_book)
     
+    for i in range(0, len(phone_book)-1):
+        word1, word2 = phone_book[i], phone_book[i+1]
+        if len(word1) > len(word2):
+            continue
+        if word1 == word2[:len(word1)]:
+            return False
+    return True
