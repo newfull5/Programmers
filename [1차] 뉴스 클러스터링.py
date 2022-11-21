@@ -1,3 +1,4 @@
+"""
 def solution(str1, str2):
     set1 = []
     set2 = []
@@ -28,3 +29,35 @@ def solution(str1, str2):
                 break
                 
     return int((cnt / (length - cnt)) * 65536)
+"""
+#2022.11.21
+from collections import Counter
+
+def solution(str1, str2):
+    set1, set2 = [], []
+    str1, str2 = str1.lower(), str2.lower()
+    
+    for i in range(1, len(str1)):
+        if str1[i-1].isalpha() and str1[i].isalpha():
+            set1.append(str1[i-1] + str1[i])
+            
+    for i in range(1, len(str2)):
+        if str2[i-1].isalpha() and str2[i].isalpha():
+            set2.append(str2[i-1] + str2[i])
+    
+    intersection = 0
+    union = 0
+
+    set1 = Counter(set1)
+    set2 = Counter(set2)
+    
+    keys = set(set1.keys()) | set(set2.keys())
+
+    if not keys:
+        return 65536
+    
+    for v in keys:
+        intersection += min(set1[v], set2[v])
+        union += max(set1[v], set2[v])
+        
+    return int((intersection / union) * 65536)
