@@ -1,3 +1,4 @@
+'''
 def solution(k, dungeons):
     answer = []
     length = len(dungeons)
@@ -22,3 +23,18 @@ def solution(k, dungeons):
         dfs(dungeon, k, [idx])
 
     return max(answer)
+'''
+#2022.11.22
+from itertools import permutations
+
+def solution(k, dungeons):
+    answer = 0
+    for dungeon in permutations(dungeons):
+        cnt = 0
+        stamina = k
+        for essential, cost in dungeon:
+            if stamina >= essential:
+                stamina -= cost
+                cnt += 1
+        answer = max(answer, cnt)
+    return answer
