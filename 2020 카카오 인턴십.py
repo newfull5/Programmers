@@ -53,7 +53,7 @@ def minus(expression):
         stack.append(exp)
     return stack
 
-def solution(expression):
+def solution(expression): 
     q = re.compile('\d+|[*]|[-]|[+]')
     expression = q.findall(expression)
     
