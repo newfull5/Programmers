@@ -65,3 +65,4 @@ def solution(expression):
         abs(plus(mult(minus(expression)))[0]), # - > * > +
         abs(mult(minus(plus(expression)))[0])  # + > - > *
     ])
+ 
