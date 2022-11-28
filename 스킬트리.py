@@ -43,6 +43,7 @@ def solution(skill, skill_trees):
             
     return cnt
 '''
+'''
 #2020.04.21
 def solution(skill, skill_trees):
     arr = []
@@ -60,3 +61,20 @@ def solution(skill, skill_trees):
         if temp in arr:
             cnt += 1
     return cnt
+'''
+#2022.11.28
+import re
+
+def solution(skill, skill_trees):
+    answer = 0
+    accept_list = []
+    for i in range(len(skill)+1):
+        accept_list.append(skill[:i])
+    
+    pattern = '['+'|'.join(skill)+']'
+    for skill_tree in skill_trees:
+        skill_tree = ''.join(re.findall(pattern, skill_tree))
+        if skill_tree in accept_list:
+            answer += 1
+            
+    return answer
