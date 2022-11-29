@@ -1,3 +1,4 @@
+'''
 def Square(board):
     a = len(board)-1
     data = []
@@ -24,5 +25,42 @@ def solution(m, n, board):
         
         for a,b in data:
             del board[a][b]
-            
-        
+'''
+#2022.11.29
+import numpy as np
+
+def check_window(w,h,board):
+    if board[h, w] == board[h, w+1] == board[h+1, w] == board[h+1, w+1]:
+        if board[h, w] == '1':
+            return False
+        return True
+    return False
+
+def solution(m, n, board):
+    for i in range(m):
+        board[i] = list(board[i])
+    board = np.array(board)
+    
+    answer = 0
+    while True:
+        redun_idx = set()
+        for w in range(n-1):
+            for h in range(m-1):
+                if check_window(w,h,board):
+                    redun_idx.add((h,w))
+                    redun_idx.add((h,w+1))
+                    redun_idx.add((h+1,w))
+                    redun_idx.add((h+1,w+1))
+
+        # Set vector '1'
+        for h,w in redun_idx:
+            board[h, w] = '1'
+
+        # Shit vecotr down
+        for w in range(n):
+            cnt = np.count_nonzero(board[:, w] == '1')
+            board[:, w] = np.array(['1']*cnt + board[:, w][board[:, w] != '1'].tolist())
+        # Count the number of '1'
+        if answer == np.count_nonzero(board == '1'):
+            return answer
+        answer = np.count_nonzero(board == '1')
