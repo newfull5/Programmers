@@ -18,7 +18,7 @@ def solution(files):
     
     return [c for a,b,c in concat]
 """
-
+'''
 import re
 
 q = re.compile('\d+')
@@ -32,3 +32,17 @@ arr = sorted(arr, key = lambda x: x[1])
 arr = sorted(arr, key = lambda x: x[0])
 
 return [c for a,b,c in arr]
+'''
+#2022.12.02
+import re
+
+def solution(files):
+    lists = []
+    for file in files:
+        head = re.findall('[a-zA-Z.\-\\s]+', file)[0]
+        number = re.findall('^[^\d]*(\d+)', file)[0]
+        lists.append((file, head.lower(), int(number)))
+    
+    lists = sorted(lists, key=lambda x: x[2])
+    lists = sorted(lists, key=lambda x: x[1])
+    return [file for file, head, number in lists]
