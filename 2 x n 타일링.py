@@ -45,6 +45,7 @@ def solution(n):
         
     return temp%1000000007
 '''
+'''
 #여유가 생기고 나면 문제의 더 많은 것이 보인다. 이렇게 쉬운문제였는데 과거의 나는 뭘한건가.
 def solution(n):
     a = 1
@@ -52,3 +53,10 @@ def solution(n):
     for i in range(1, n-1):
         a,b = b, a+b
     return b%1000000007
+'''
+#2022.12.03
+def solution(n):
+    a,b = 1, 2
+    for i in range(1, n-1):
+        a,b = b,a+b
+    return b % 1_000_000_007
