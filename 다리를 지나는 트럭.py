@@ -47,6 +47,7 @@ def solution(bridge_length, weight, truck_weights):
         
     return cnt+bridge_length
 """
+'''
 #2021.06.23
 #deque을 쓸 필요가 없더라.
 def solution(bridge_length, weight, truck_weights):
@@ -66,3 +67,22 @@ def solution(bridge_length, weight, truck_weights):
             stack.append(0)
             
     return cnt + bridge_length
+'''
+#2022.12.06
+from collections import deque
+
+def solution(bridge_length, weight, truck_weights):
+    trucks = deque(truck_weights)
+    on_bridge = deque([0] * bridge_length)
+    bridge_sum = 0
+    for cnt in range(1_000_000):
+        bridge_sum -= on_bridge.popleft()
+        if not on_bridge:
+            return cnt+1
+        if trucks: 
+            if bridge_sum + trucks[0] <= weight:
+                bridge_sum += trucks[0]
+                on_bridge.append(trucks.popleft())
+            else:
+                on_bridge.append(0)
+        
