@@ -1,7 +1,7 @@
 #역시 재귀는 어렵다. 
 
 def solution(a):  
-    answer = ''
+    answer = '' 
     def div(a):
         nonlocal answer
         if a == 0:
