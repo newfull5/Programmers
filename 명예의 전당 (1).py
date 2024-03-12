@@ -17,3 +17,4 @@ def solution(k, scores):
         answer.append(heap[0])
                 
     return answer
+  
