@@ -38,7 +38,7 @@ def solution(number, k):
                 break
     return "".join([str(i) for i in number])
 '''
-  
+'''
 def solution(number, k):
     a = 0
     while k != 0:
@@ -54,3 +54,17 @@ def solution(number, k):
             if i == len(number):
                 number = number[:-1]
     return number
+'''
+#2024.04.02
+def solution(number, k):
+    stack = []
+    
+    for num in number:
+        while k > 0 and stack and stack[-1] < num:
+            stack.pop()
+            k -= 1
+        stack.append(num)
+        
+    if k != 0:
+        return ''.join(stack)[:-k]
+    return ''.join(stack)
