@@ -3,7 +3,7 @@ def check(s):
 
     for i in s:
         if i == '(':
-            stack.append(i)
+            stack.append(i) 
         else:
             if len(stack) == 0:
                 return False
