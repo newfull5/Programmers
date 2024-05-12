@@ -1,3 +1,4 @@
+'''
 def bisect(x,d):
     left = 0
     right = d
@@ -24,6 +25,19 @@ def solution(k, d):
     for x in range(0, d+1, k):
         lists.append(bisect(x, d))
                 
+    answer = 0
+    for x,y in lists:
+        answer += (y // k)+1
+        
+    return answer
+'''
+import math
+
+def solution(k, d):
+    lists = []
+    for x in range(0, d+1, k):
+        lists.append([x, int((d**2 - x**2)**(1/2))])
+        
     answer = 0
     for x,y in lists:
         answer += (y // k)+1
