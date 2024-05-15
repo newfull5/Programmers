@@ -16,6 +16,7 @@ def solution(operations):
         return [0,0]
     return [max(stack),min(stack)]
 '''
+'''
 #2021.06.23
 def solution(operations):
     queue = []
@@ -35,3 +36,32 @@ def solution(operations):
     if len(queue) > 1:
         return [max(queue), min(queue)]
     return [0,0]
+'''
+from heapq import heappush, heappop
+
+def solution(operations):
+    length = 0
+    min_heap = []
+    max_heap = []
+    
+    for operation in operations:
+        oper, num = operation.split()
+        if oper == 'I':
+            heappush(min_heap, int(num))
+            heappush(max_heap, int(num)*-1)
+            length += 1
+            
+        elif operation == 'D 1' and length != 0:
+            heappop(max_heap)
+            min_heap.pop()
+            length -= 1
+            
+        elif operation == 'D -1' and length != 0:
+            heappop(min_heap)
+            max_heap.pop()
+            length -= 1
+        
+    if length == 0:
+        return [0,0]
+    
+    return [max_heap[0]*-1, min_heap[0]]
