@@ -13,7 +13,7 @@ def solution(triangle):
         
     return current[0]
 """
-
+'''
 #2020.11.15
 def solution(triangle):
     triangle = list(map(lambda x: [0] + x + [0], triangle))
@@ -22,4 +22,14 @@ def solution(triangle):
         for j in range(len(triangle[i])-1):
             triangle[i+1][j+1] += max(triangle[i][j], triangle[i][j+1])
 
+    return max(triangle[-1])
+'''
+
+def solution(triangle):
+    for i in range(1, len(triangle)):
+        triangle[i-1] = [0] + triangle[i-1] + [0]
+        
+        for j in range(len(triangle[i])):
+            triangle[i][j] += max([triangle[i-1][j], triangle[i-1][j+1]])
+            
     return max(triangle[-1])
