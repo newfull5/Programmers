@@ -49,6 +49,7 @@ def solution(n, computers):
 
     return answer
 """
+'''
 #2021.6.24
 def solution(n, computers):
     
@@ -72,3 +73,25 @@ def solution(n, computers):
             DFS(index)
 
     return answer
+'''
+def solution(n, computers):
+    visited = []
+    answer = []
+    
+    def dfs(start_node, visited, answer):
+        visited.append(start_node)
+        answer.append(start_node)
+        for i, v in enumerate(computers[start_node]):
+            if i in visited or v == 0:
+                continue
+            visited, answer = dfs(i, visited, answer)
+            
+        return visited, answer
+        
+    for i in range(len(computers)):
+        if i in visited:
+            continue
+        visited, network = dfs(i, visited, [])
+        answer.append(network)
+        
+    return len(answer)
