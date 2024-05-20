@@ -69,6 +69,7 @@ def solution(begin, target, words):
         return 0
     return answer
 """
+'''
 #2021.6.26
 def solution(begin, target, words):
     def checkOneDiffent(begin,word):
@@ -109,3 +110,35 @@ def solution(begin, target, words):
         words = list(set(words) - set(queue))
         
     return 0
+'''
+from collections import deque
+
+def check_onediff(start, word):
+    cnt = 0
+    
+    for i in range(len(start)):
+        if start[i] != word[i]:
+            cnt += 1
+            
+    if cnt == 1:
+        return True
+    return False
+
+
+def solution(begin, target, words):
+    if target not in words:
+        return 0
+    
+    queue = deque([[begin,0]])
+    visited = [begin]
+    
+    while queue:        
+        start, cnt = queue.popleft()
+        if start == target:
+            return cnt
+        for word in words:
+            if check_onediff(start, word) and (word not in visited):
+                queue.append([word, cnt+1])
+                visited.append(word)
+        
+        
