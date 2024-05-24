@@ -6,7 +6,7 @@ def get_linked_element(i,j, maps, visited):
     max_width = len(maps[0])-1
     
     queue = deque([[i,j]])
-    linked_element = []
+    linked_element = [] 
     
     while queue:
         i,j = queue.popleft()
