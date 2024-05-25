@@ -89,6 +89,7 @@ def solution(scoville, K):
         heappush(scoville, (heappop(scoville) + heappop(scoville)*2))
         cnt += 1
 '''
+'''
 #2022.11.19
 from heapq import heapify, heappop, heappush
 
@@ -105,3 +106,19 @@ def solution(scoville, k):
             return answer
         
     return -1
+'''
+from heapq import heapify, heappop, heappush
+
+def solution(scoville, k):
+    answer = 0
+    heapify(scoville)
+    
+    while scoville[0] < k:
+        if len(scoville) < 2:
+            return -1
+        a = heappop(scoville)
+        b = heappop(scoville)
+        heappush(scoville, a+b*2)
+        answer += 1
+        
+    return answer
