@@ -9,7 +9,7 @@ def solution(a, b):
     summ += b 
      
     return aaa[summ % 7]
-"""
+""" 
 #2022.11.13
 import datetime
 
