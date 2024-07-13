@@ -12,6 +12,7 @@ def solution(n):
                 
     return len(answer)+1
 """
+'''
 #2022.11.14
 def search_maxn(n):
     for i in range(1, 140):
@@ -31,3 +32,29 @@ def solution(n):
                 break
                 
     return answer
+'''
+def check_max_num(n):
+    sum_ = 0
+    for i in range(0, n+1):
+        sum_ += i
+        if sum_ >= n:
+            return i
+        
+def solution(n):
+    answer = 0
+    reps = check_max_num(n)
+    
+    while reps > 0:
+        for idx in range(1, n):
+            sum_ = sum(list(range(idx, reps+idx)))
+            
+            if sum_ == n:
+                answer += 1
+                break
+            
+            if sum_ > n:
+                break
+                
+        reps -= 1
+        
+    return answer+1
