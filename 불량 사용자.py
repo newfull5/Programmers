@@ -1,3 +1,4 @@
+'''
 import re
 
 def solution(user_id, banned_id):
@@ -29,3 +30,35 @@ def solution(user_id, banned_id):
     DFS([],0)
 
     return len(set(answer))
+'''
+import re
+from itertools import product
+
+def solution(user_id, banned_id):
+    answer = []
+    visited = []
+    
+    for i in range(len(banned_id)):
+        banned_id[i] = banned_id[i].replace('*','[a-zA-Z0-9]')
+        banned_id[i] = '^'+banned_id[i]+'$'
+    
+    for ban in banned_id:
+        id_list = []
+        for user in user_id:
+            if re.search(ban, user):
+                id_list.append(re.search(ban, user).group())
+        
+        answer.append(id_list)
+        
+    for users in list(map(list, product(*answer))):
+        users = sorted(users)
+        
+        if len(users) != len(set(users)):
+            continue
+            
+        if users in visited:
+            continue
+            
+        visited.append(users)
+        
+    return len(visited)
