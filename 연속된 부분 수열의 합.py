@@ -20,3 +20,4 @@ def solution(sequence, k):
     
     answers.sort(key=lambda x: (x[1]-x[0], x[0]))
     return answers[0]
+ 
