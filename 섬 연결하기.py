@@ -1,3 +1,4 @@
+'''
 def solution(n, costs):
     costs = sorted(costs, key = lambda x: x[-1])
 
@@ -18,4 +19,20 @@ def solution(n, costs):
                 answer += c
                 break
 
+    return answer
+'''
+def solution(n, costs):
+    answer = 0
+    costs = sorted(costs, key=lambda x: x[-1])
+    visited = set([costs[0][0]])
+    
+    while len(visited) != n:
+        for node1, node2, cost in costs:
+            if node1 in visited and node2 in visited:
+                continue
+            if node1 in visited or node2 in visited:
+                visited.update([node1, node2])
+                answer += cost
+                break
+                
     return answer
